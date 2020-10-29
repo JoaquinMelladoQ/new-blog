@@ -30,7 +30,11 @@ class PostsController < ApplicationController
             flash.now[:alert] = 'Post cannot be created.'
             render :edit
         end
-        
+    end
+
+    def destroy
+        @post.destroy
+        redirect_to posts_url, notice: 'Post was successfully destroyed.'
     end
     
     private
