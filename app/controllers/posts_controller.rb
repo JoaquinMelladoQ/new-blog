@@ -8,6 +8,16 @@ class PostsController < ApplicationController
     def new
         @post = Post.new
     end
+
+    def create
+        @post = Post.new(post_params)
+        if @post.save
+            redirect_to posts_path, notice: 'Post was successfully created.' 
+        else
+            flash.now[:alert] = 'Post cannot be created.'
+            render :new
+        end
+    end
     
     private
     def set_post
