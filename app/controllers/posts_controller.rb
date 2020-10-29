@@ -18,6 +18,20 @@ class PostsController < ApplicationController
             render :new
         end
     end
+
+    def edit
+        
+    end
+
+    def update
+        if @post.update(post_params)
+            redirect_to posts_path, notice: 'Post was successfully updated.'            
+        else
+            flash.now[:alert] = 'Post cannot be created.'
+            render :edit
+        end
+        
+    end
     
     private
     def set_post
