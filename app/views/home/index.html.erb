@@ -18,10 +18,10 @@
         </span>
         <span><strong>on </strong>
           <span class="font-weight-light"><%= post.created_at %></span></span>
+        </div>
+        <div class="col-md-12"><p><%= post.description%></p></div>
       </div>
-      <div class="col-md-12"><p><%= post.description%></p></div>
+      <% end %>
+      <%= paginate @posts %>
     </div>
-    <% end %>
-    <%= paginate @posts %>
   </div>
-</div>
